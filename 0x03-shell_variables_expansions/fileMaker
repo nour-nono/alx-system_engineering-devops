@@ -1,0 +1,3 @@
+read hello
+echo "!#/bin/bash"> ${hello}
+chmod 755 ${hello}
