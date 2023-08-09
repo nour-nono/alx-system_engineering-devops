@@ -1,2 +1,2 @@
 #!/bin/bash
-echo {a..z}{a..n} {a..n}o {p..z}o o{a..n} o{p..z} {a..z}{p..z}|tr " " "\n"|sort|uniq
+echo {a..z}{a..z}|tr " " "\n"|tr " " "\n"| grep -v "oo"
