@@ -3,11 +3,11 @@
 # 9th time print Hi
 count=1
 while [ $count -le 10 ];
- do
- 	if (( count == 9 ));
+do
+	if (( count == 9 ));
 		then echo "Hi";
- 	else
+	else
 		echo "Best School";
- 	fi
- count=$((count + 1))
- done
+	fi
+count=$((count + 1))
+done
