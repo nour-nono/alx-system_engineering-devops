@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # while-count: display a series of numbers
 # 9th time print Hi
-count=1
-while [ $count -le 10 ];
+count=0
+while [ $count -lt 10 ];
 do
 	if [ $count -eq 9 ]
 		then echo "Hi"
