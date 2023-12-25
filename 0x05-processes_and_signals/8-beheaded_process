@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 #Bash script that kills the process 7-highlander
-id=$(pgrep "bash ./4-to_infinity_and_beyond" -f)
-kill -9 $id
+kill -9 $(pgrep "bash highlander" -f)
