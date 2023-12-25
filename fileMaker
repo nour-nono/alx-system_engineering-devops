@@ -1,0 +1,3 @@
+read hello
+echo "#!/bin/bash"> ./0x03-shell_variables_expansions/${hello}
+chmod 755 ./0x03-shell_variables_expansions/${hello}
