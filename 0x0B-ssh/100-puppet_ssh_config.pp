@@ -1,3 +1,4 @@
+# ssh use the private key ~/.ssh/school
 file { '/home/ubuntu/.ssh/config':
   ensure  => file,
   owner   => 'ubuntu',
