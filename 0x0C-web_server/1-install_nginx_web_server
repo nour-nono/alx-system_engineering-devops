@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#!/bin/bash
 # Script to install and configure nginx
 
 # Update the package lists for upgrades and new package installations
