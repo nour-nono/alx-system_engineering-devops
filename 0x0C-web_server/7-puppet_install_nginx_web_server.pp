@@ -33,7 +33,7 @@ server {
   }
 
   location /redirect_me {
-    return 301 https://www.example.com;
+    return 301 noureldeen.tech;
   }
 }',
     notify  => Service['nginx'],
