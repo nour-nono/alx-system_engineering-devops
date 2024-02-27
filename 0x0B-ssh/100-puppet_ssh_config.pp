@@ -1,8 +1,6 @@
 # ssh use the private key ~/.ssh/school
-file { '/home/ubuntu/.ssh/config':
+file { 'ssh_config':
   ensure  => file,
-  owner   => 'ubuntu',
-  group   => 'ubuntu',
-  mode    => '0600',
+  path => '/etc/ssh/ssh_config',
   content => "Host *\n  IdentityFile ~/.ssh/school\n  PasswordAuthentication no\n",
 }
