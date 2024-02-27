@@ -80,3 +80,19 @@ server {
 
     # Other locations...
 }
+
+server {
+    listen  80;
+    server_name <%= @server_name %>;
+
+    location / {
+        root <%= @root %>;
+        try_files $uri $uri/ =404;
+    }
+
+    location <%= @redirect_uri %> {
+        return  301 /;
+    }
+
+    # Other locations...
+}
