@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Script to install and configure nginx with a 301 redirect
+
+# Update the package lists for upgrades and new package installations
+sudo apt-get update -y
+
+# Install nginx
+sudo apt-get install -y nginx
+
+# Start nginx
+sudo service nginx start
+
+# Create a new index.html file
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Add a 301 redirect for /redirect_me in the default nginx configuration
+sudo sed -i 's/location \/ {/location \/ {\n\trewrite ^\/redirect_me$ https:\/\/www.example.com\/ permanent;\n}/g' /etc/nginx/sites-available/default
+
+# Restart nginx
+sudo service nginx restart
