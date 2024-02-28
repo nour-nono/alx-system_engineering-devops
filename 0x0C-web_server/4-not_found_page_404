@@ -12,4 +12,4 @@ sudo sed -i "error_page 404 /404.html;\n\t
         internal;\n\t
     }" /usr/share/nginx/html
 
-sudo service nginx start
+sudo service nginx restart
