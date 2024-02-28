@@ -1,19 +1,11 @@
 #!/usr/bin/env bash
-# Script to install and configure nginx with a 301 redirect
+# Script that configures a new Ubuntu machine to respect above requirements
 
-# Update the package lists for upgrades and new package installations
-sudo apt-get update -y
-
-# Install nginx
+sudo apt-get update
 sudo apt-get install -y nginx
 
-sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.html
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.google.com permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
 
-# Create a new index.html file
-echo "Hello World!" > /var/www/html/index.html
-
-# Add a 301 redirect for /redirect_me in the default nginx configuration
-sudo sed -i 's/location \/ {/location \/ {\n\trewrite ^\/redirect_me$ noureldeen.tech permanent;\n}/g' /etc/nginx/sites-available/default
-
-# Restart nginx
-sudo service nginx start
+sudo service nginx restart
