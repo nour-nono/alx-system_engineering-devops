@@ -10,7 +10,7 @@ sudo apt-get install -y nginx
 sudo ufw allow 'Nginx HTTP'
 
 # Create a new index.html file
-echo "Hello World!" > /var/www/html/index.html
+sudo echo "Hello World!" > /var/www/html/index.html
 
 # Add a 301 redirect for /redirect_me in the default nginx configuration
 sudo sed -i 's/location \/ {/location \/ {\n\trewrite ^\/redirect_me$ https:\/\/www.example.com\/ permanent;\n}/g' /etc/nginx/sites-available/default
