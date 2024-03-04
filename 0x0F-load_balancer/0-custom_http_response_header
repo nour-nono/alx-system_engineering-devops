@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Install Nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Get the hostname of the server
+HOSTNAME=$(hostname)
+
+# Configure Nginx to add a custom header
+echo "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    location / {
+        add_header X-Served-By $HOSTNAME;
+    }
+}" | sudo tee /etc/nginx/sites-available/default
+
+# Restart Nginx to apply the changes
+sudo systemctl restart nginx
