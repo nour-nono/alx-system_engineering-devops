@@ -1,20 +1,16 @@
-class nginx_custom_header {
-    package { 'nginx':
-        ensure => installed,
-    }
+# Use Puppet to automate the task of creating a custom HTTP header response
 
-    file { '/etc/nginx/sites-available/default':
-        ensure  => file,
-        content => template('nginx_custom_header.erb'),
-        require => Package['nginx'],
-        notify  => Service['nginx'],
-    }
-
-    service { 'nginx':
-        ensure    => running,
-        enable    => true,
-        subscribe => File['/etc/nginx/sites-available/default'],
-    }
+exec {'update':
+  command => '/usr/bin/apt-get update',
 }
-
-include nginx_custom_header
+-> package {'nginx':
+  ensure => 'present',
+}
+-> file_line { 'http_header':
+  path  => '/etc/nginx/nginx.conf',
+  match => 'http {',
+  line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
+}
+-> exec {'run':
+  command => '/usr/sbin/service nginx restart',
+}
