@@ -16,4 +16,4 @@ echo "server {
 }" | sudo tee /etc/nginx/sites-available/default
 
 # Restart Nginx to apply the changes
-sudo systemctl restart nginx
+sudo service haproxy restart
