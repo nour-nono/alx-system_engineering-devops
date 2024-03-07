@@ -5,15 +5,16 @@ sudo apt-get install -y haproxy
 
 # Configure HAProxy
 echo "
-frontend http_front
+frontend nour_eldeen_frontend
     bind *:80
+    mode http
     stats uri /haproxy?stats
-    default_backend http_back
+    default_backend nour_eldeen_backend
 
-backend http_back
+backend nour_eldeen_backend
     balance roundrobin
-    server web-01 [STUDENT_ID]-web-01:80 check
-    server web-02 [STUDENT_ID]-web-02:80 check
+    server web-01 35.174.211.199:80 check
+    server web-02 35.175.129.104:80 check
 " | sudo tee /etc/haproxy/haproxy.cfg
 
 # Restart HAProxy to apply the changes
