@@ -4,4 +4,5 @@ apt-get -y update
 apt-get -y install nginx
 service nginx start
 echo "server { listen 80; }" > /etc/nginx/sites-available/default
+echo "server { listen 80; }" > /etc/nginx/sites-enabled/default
 service nginx restart

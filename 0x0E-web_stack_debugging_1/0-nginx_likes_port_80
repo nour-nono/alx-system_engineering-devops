@@ -11,6 +11,10 @@ echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
 }" | sudo tee /etc/nginx/sites-available/default
+echo "server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+}" | sudo tee /etc/nginx/sites-enabled/default
 
 # Restart Nginx to apply the changes
 sudo systemctl restart nginx
