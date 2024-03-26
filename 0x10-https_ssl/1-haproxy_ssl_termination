@@ -1,0 +1,16 @@
+defaults
+  mode  http
+  timeout connect 5s
+  timeout client  50s
+  timeout server  50s
+
+frontend nour_eldeen
+  bind *:80
+  bind *:443 ssl crt /etc/haproxy/certs/www.noureldeen.tech.pem
+  redirect scheme https code 301 if !{ ssl_fc }
+  default_backend nour_eldeen_backend
+
+backend nour_eldeen_backend
+  balance roundrobin
+  server 508927-web-01 54.89.107.222:80 check
+  server 508927-web-02 54.234.32.32:80 check
