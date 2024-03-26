@@ -7,7 +7,6 @@ defaults
 frontend nour_eldeen
   bind *:80
   bind *:443 ssl crt /etc/haproxy/certs/www.noureldeen.tech.pem
-  redirect scheme https code 301 if !{ ssl_fc }
   default_backend nour_eldeen_backend
 
 backend nour_eldeen_backend
