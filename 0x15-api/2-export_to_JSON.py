@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Python script that, using this REST API, for a given employee ID
 and saves it to a json file."""
+import json
 import requests
 import sys
-import json
 
 if __name__ == "__main__":
     u = f"https://jsonplaceholder.typicode.com/"
