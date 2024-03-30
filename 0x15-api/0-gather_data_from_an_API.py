@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Python script that, using this REST API, for a given employee ID."""
+"""Python script that, using this REST API
+, for a given employee ID."""
 
 import requests
 import sys
 
-x = sys.argv[1]
-
 if __name__ == "__main__":
+    x = sys.argv[1]
     u = f"https://jsonplaceholder.typicode.com/"
     response = requests.get(u+f"users/{x}")
     data = response.json()
