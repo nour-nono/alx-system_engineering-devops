@@ -12,9 +12,6 @@ if __name__ == "__main__":
     p = {"userId": sys.argv[1], "completed": "true"}
     pp = {"userId": sys.argv[1]}
     todos = requests.get(url=u+"todos", params=p).json()
-    print(f"Employee {data.get('name')} is done with"
-          + " tasks({len(todos)}/"
-          + f"{len(requests.get(url=u+"todos", params=pp).json())}):")
     with open(f"{sys.argv[1]}.csv", "w") as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for todo in todos:

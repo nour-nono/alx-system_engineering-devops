@@ -11,10 +11,7 @@ if __name__ == "__main__":
     data = response.json()
     p = {"userId": sys.argv[1], "completed": "true"}
     pp = {"userId": sys.argv[1]}
-    todos = requests.get(url=u+"todos", params=p).json()
-    print(f"Employee {data.get('name')} is done with"
-          + " tasks({len(todos)}/"
-          + f"{len(requests.get(url=u+"todos", params=pp).json())}):")
+    todos = requests.get(url=u+"todos", params=pp).json()
     with open(f"{sys.argv[1]}.json", "w") as f:
         json.dump({sys.argv[1]: [{"task": todo.get("title"),
                                   "completed": todo.get("completed"),
