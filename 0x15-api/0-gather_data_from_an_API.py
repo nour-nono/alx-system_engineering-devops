@@ -4,11 +4,15 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
-    user = requests.get(url + "users/{}".format(sys.argv[1])).json()
-    todos = requests.get(url + "todos", params={"userId": sys.argv[1]}).json()
-
-    completed = [t.get("title") for t in todos if t.get("completed") is True]
-    print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), len(completed), len(todos)))
-    [print("\t {}".format(c)) for c in completed]
+    x = sys.argv[1]
+    u = f"https://jsonplaceholder.typicode.com/"
+    response = requests.get(u+f"users/{x}")
+    data = response.json()
+    p = {"userId": x, "completed": "true"}
+    pp = {"userId": x}
+    todos = requests.get(url=u+"todos", params=p).json()
+    print(f"Employee {data.get('name')} is done with"
+          f" tasks({len(todos)}/"
+          f"{len(requests.get(url=u+"todos", params=pp).json())}):")
+    for todo in todos:
+        print("\t " + todo.get("title"))
