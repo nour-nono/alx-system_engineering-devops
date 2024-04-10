@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
     if x.status_code == 200:
         try:
             return x.json()['data']['subscribers']
-        except KeyError:
+        except:
             return 0
     else:
         return 0

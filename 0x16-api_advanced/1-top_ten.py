@@ -11,7 +11,7 @@ def top_ten(subreddit):
         try:
             for i in range(10):
                 print(x.json()['data']['children'][i]['data']['title'])
-        except KeyError:
+        except:
             print("None")
     else:
         print("None")
