@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# until-count: display a series of numbers
+while read line
+do
+    otpt=`echo ${line} | cut -d ":" -f 1`
+    otpt="${otpt}:`echo ${line} | cut -d ":" -f 3`"
+    otpt="${otpt}:`echo ${line} | cut -d ":" -f 6`"
+    echo $otpt
+done < /etc/passwd
